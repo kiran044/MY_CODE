@@ -1,0 +1,29 @@
+rand=
+greenback="\033[1;;32m"
+greenback="\033[1;43m"
+normal="\033[0m"
+
+while [[ -z $rand ]];do
+rand=`echo {a..z}${RANDOM:1:5}{A..Z}{0..20} | cut -d" " -f${RANDOM:0:6}`
+done
+
+function inputcheck {
+#read -s input
+while [[ $input != $rand ]];
+do
+echo -e "Captche is : "$greenback$rand$normal" Enter same to verify you are Human !";
+read -p "Enter Input Here: " input
+done
+}
+
+while [[ -n $rand ]];do
+#echo "Captche is : " $rand
+inputcheck
+if [[ $? = 0 ]]
+then
+echo -e "\033[3;33mCaptcha verified ! \033[0m"
+else
+echo "Captcha Not verified ! "
+fi
+break
+done
