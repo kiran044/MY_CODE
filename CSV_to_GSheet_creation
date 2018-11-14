@@ -1,0 +1,18 @@
+ function CSV_to_GSheet_creation() {
+  var xlsfolder = DriveApp.getFilesByName("oldcsvfile.csv").next().getId();
+  var xlsFile = DriveApp.getFileById(xlsfolder); // File instance of Excel file
+  var xlsBlob = xlsFile.getBlob();
+  var oldfileid = DriveApp.getFilesByName("newGsheet").next().getId();
+  var oldrm = Drive.Files.remove(oldfileid);
+  var deltrash = Drive.Files.emptyTrash();
+     var file = {
+    title: "newGsheet",
+    parents: [{'id':'<pass folder id here>'}],
+    key: 'XXXX',
+    value: 'XXXX',
+    visibility: '<Your visibility preference (PUBILC/PRIVATE)>'
+  };
+  file  = Drive.Files.insert(file , xlsBlob, {convert: true });
+  var copyfile = Drive.Files.c
+  
+};
