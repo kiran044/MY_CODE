@@ -1,6 +1,5 @@
 rand=
-greenback="\033[1;;32m"
-greenback="\033[1;43m"
+yellowback="\033[1;43m"
 normal="\033[0m"
 
 while [[ -z $rand ]];do
@@ -11,7 +10,7 @@ function inputcheck {
 #read -s input
 while [[ $input != $rand ]];
 do
-echo -e "Captche is : "$greenback$rand$normal" Enter same to verify you are Human !";
+echo -e "Captche is : "$yellowback$rand$normal" Enter same to verify you are Human !";
 read -p "Enter Input Here: " input
 done
 }
