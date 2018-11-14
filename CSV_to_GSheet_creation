@@ -14,5 +14,4 @@
   };
   file  = Drive.Files.insert(file , xlsBlob, {convert: true });
   var copyfile = Drive.Files.c
-  
 };
